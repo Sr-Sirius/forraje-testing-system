@@ -38,3 +38,13 @@ def test_login_password_incorrecto():
     result = login("mike", "wrongpass", db)
 
     assert result["status"] is False
+
+#  Login con datos vacíos (validación)
+def test_login_datos_vacios():
+    db = [
+        {"username": "mike", "password": "123456"}
+    ]
+
+    result = login("", "", db)
+
+    assert result["status"] is False
